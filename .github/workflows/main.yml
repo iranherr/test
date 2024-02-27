@@ -14,3 +14,8 @@ jobs:
           branch: 'main'
           owner: 'DevSecOps-Ciclo-7'
           repository: 'final-lab'
+          
+      - name: Access cloned repository content
+        run: |
+          cd <repository-name>
+          ls -la
