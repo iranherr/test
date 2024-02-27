@@ -1,21 +1,21 @@
-name: CICD
-on: 
-  push:
-    branches:
-      - main 
-jobs:
-    AnalisisSAST:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Clone PUBLIC repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
-        with:
-          depth: 1
-          branch: 'main'
-          owner: 'DevSecOps-Ciclo-7'
-          repository: 'final-lab'
-          
-      - name: Access cloned repository content
-        run: |
-          cd <repository-name>
-          ls -la
+name: Run tests
+
+on: [push, pull_request]
+
+jobs:  
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone supercharge website repository
+      uses: actions/checkout@v2
+
+    # This part here is cloning a second repository
+    # While cloning the repository:
+    #   - it clones the repo into the given `path`
+    #   - it checks out the branch defined at `ref`
+    - name: Clone supercharge docs repository
+      uses: actions/checkout@v2
+      with:
+        repository: DevSecOps-Ciclo-7/final-lab
+   
