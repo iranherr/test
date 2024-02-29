@@ -12,10 +12,11 @@ jobs:
       with:
         depth: 1
         branch: 'main'
-        owner: 'iranherr'
-        repository: 'devsecops'
+        owner: 'DevSecOps-Ciclo-7'
+        repository: 'final-lab'
         
     - name: Access cloned repository content
       run: |
         cd devsecops
         ls -la
+
